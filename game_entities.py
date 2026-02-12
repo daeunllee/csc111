@@ -58,7 +58,7 @@ class Location:
     available_commands: dict[str, int]
     items: list[str]
     visited: bool = False
-    item_check: bool = False
+    item_check: bool
 
 
 @dataclass

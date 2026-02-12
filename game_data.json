@@ -56,7 +56,7 @@
       "id": 5,
       "name": "Oak House",
       "brief_description": "The student residence you live at.",
-      "long_description": "The student residence you live at. You like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work. You've given up on complaints after the first month of living here.",
+      "long_description": "The student residence you live at. It's very quiet in the lobby, and there's puddles of water and snow on the floor. You like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work.",
       "available_commands": {
         "go West": 1,
         "use phone": 0

@@ -80,14 +80,14 @@
    },
    {
       "name": "U of T Mug",
-      "description": "Your favourite lucky mug",
+      "description": "Your favourite lucky mug.",
       "start_position": 3,
       "target_position": 0,
       "target_points": 50
    },
    {
       "name": "Phone",
-      "description": "Idk technology",
+      "description": "Your phone that you can't go anywhere without.",
       "start_position": 0,
       "target_position": 0,
       "target_points": 0

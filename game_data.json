@@ -66,7 +66,7 @@
       "id": 6,
       "name": "Dorm room",
       "brief_description": "The dorm room you live in.",
-      "long_description": "The dorm room you live in. It's small and untidy, and smells a bit like takeout. You take the powerbank from your desk and plug it into your phone. the screen lights up, and a message pops up on the screen.",
+      "long_description": "The dorm room you live in. It's small and messy, and smells a bit like takeout. There's a desk, bed, and closet. It's nothing much, just enough to live comfortably.",
       "available_commands": {
         "go West": 1,
         "use phone": 0

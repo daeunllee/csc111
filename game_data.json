@@ -16,7 +16,7 @@
       "id": 2,
       "name": "Robarts 2F - Study Space",
       "brief_description": "The study space in the Robarts library.",
-      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You like it here, but so does everyone else, so it's not very quiet here.",
+      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You can see that someone left a book on one of the couches here.",
       "available_commands": {
         "go South": 1,
         "go East": 3,
@@ -81,16 +81,23 @@
    {
       "name": "U of T Mug",
       "description": "Your favourite lucky mug.",
-      "start_position": 3,
+      "start_position": 1,
       "target_position": 0,
       "target_points": 50
    },
    {
-      "name": "Phone",
-      "description": "Your phone that you can't go anywhere without.",
+      "name": "Phone (out of battery)",
+      "description": "Your phone that you can't use without battery.",
       "start_position": 0,
-      "target_position": 0,
+      "target_position": 5,
       "target_points": 0
+   },
+   {
+      "name": "Phone (charged)",
+      "description": "Your phone that you can't go anywhere without.",
+      "start_position": 5,
+      "target_position": 0,
+      "target_points": 50
    }
   ]
 }

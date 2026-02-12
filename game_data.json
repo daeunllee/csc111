@@ -18,22 +18,6 @@
     },
     {
       "id": 2,
-      "name": "Robarts 2F - Study Space",
-      "brief_description": "The study space in the Robarts library.",
-      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You can see that someone left a book on one of the couches here.",
-      "read_description": "You pick up the book on the couch, flipped through the pages, and find your laptop charger tucked inside. You used it as a bookmark after reading, and forgot to take the book with you.",
-      "item_description": "Your charger is on the couch.",
-      "available_commands": {
-        "go South": 1,
-        "go East": 3,
-      },
-      "item_check": False,
-      "items": [
-        "Laptop Charger"
-      ]
-    },
-    {
-      "id": 3,
       "name": "Robarts 2F - Dining Area",
       "brief_description": "The dining area in the Robarts library.",
       "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. There's a long line at the Starbucks counter and the microwave.",
@@ -46,6 +30,22 @@
       "item_check": False,
       "items": [
         "Lucky Mug"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Robarts 2F - Study Space",
+      "brief_description": "The study space in the Robarts library.",
+      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You can see that someone left a book on one of the couches here.",
+      "read_description": "You pick up the book on the couch, flipped through the pages, and find your laptop charger tucked inside. You used it as a bookmark after reading, and forgot to take the book with you.",
+      "item_description": "Your charger is on the couch.",
+      "available_commands": {
+        "go South": 1,
+        "go East": 3,
+      },
+      "item_check": False,
+      "items": [
+        "Laptop Charger"
       ]
     },
     {
@@ -74,7 +74,7 @@
       "available_commands": {
         "go West": 1,
       }
-       "item_check": True,
+      "item_check": True,
       "items": [
         "Gloves"
       ]
@@ -84,9 +84,15 @@
       "name": "Dorm room",
       "brief_description": "The dorm room you live in.",
       "long_description": "The dorm room you live in. It's small and messy, and smells a bit like takeout. There's a desk, bed, and closet. It's nothing much, just enough to live comfortably.",
+      "read_description": "It's your room. You've read everything here.",
+      "item_description": "Your powerbank is on the desk.",
       "available_commands": {
         "go West": 1,
       }
+      "item_check": True,
+      "items": [
+        "Powerbank"
+      ]
     }
   ],
 "items": [
@@ -112,18 +118,25 @@
       "target_points": 50
    },
    {
-      "name": "Phone (out of battery)",
-      "description": "Your phone that you can't use without battery.",
-      "start_position": 0,
-      "target_position": 5,
-      "target_points": 0
-   },
-   {
-      "name": "Phone (charged)",
+      "name": "Phone",
       "description": "Your phone that you can't go anywhere without.",
       "start_position": 5,
       "target_position": 0,
       "target_points": 50
-   }
+   },
+   {
+      "name": "Gloves",
+      "description": "Not your pair of gloves, but finders keepers.",
+      "start_position": 2,
+      "target_position": 0,
+      "target_points": 50
+    },
+    {
+      "name": "Powerbank",
+      "description": "Your powerbank that's charging your phone right now.",
+      "start_position": 2,
+      "target_position": 0,
+      "target_points": 50
+    }
   ]
 }

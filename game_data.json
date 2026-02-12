@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "Robarts 1F - Entrance",
-      "brief_description": "a",
-      "long_description": "aa",
+      "brief_description": "The entrance to the Robarts library.",
+      "long_description": "The entrance to the Robarts library. It's a weekday, so you're not surprised to see a lot of other students around at this time. You keep your head down because you have social anxiety. Thankfully, despite the events of today, you've never lost your Tcard.",
       "available_comands": {
         "go North": 2,
         "go West": 4,
@@ -15,8 +15,8 @@
     {
       "id": 2,
       "name": "Robarts 2F - Study Area",
-      "brief_description": "a",
-      "long_description": "aa",
+      "brief_description": "The study area in the Robarts library.",
+      "long_description": "This is your favourite study spot. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You like it here, but so does everyone else. Sometimes it's hard to find an empty seat.",
       "available_commands": {
         "go South": 1,
         "go East": 3,
@@ -29,8 +29,8 @@
     {
       "id": 3,
       "name": "Robarts 2F - Dining Area",
-      "brief_description": "a",
-      "long_description": "aa",
+      "brief_description": "The dining area in the Robarts library.",
+      "long_description": "One of the many dining halls avaliable to students. Students like to eat here in between lectures and long studying hours. The Starbucks always has a long line. You don't really want to be reminded of how many caffeinated drinks you've bought here.",
       "available_commands": {
         "go West": 2,
         "use phone": 0

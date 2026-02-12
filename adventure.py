@@ -86,7 +86,7 @@ class AdventureGame:
         locations = {}
         for loc_data in data['locations']:  # Go through each element associated with the 'locations' key in the file
             location_obj = Location(loc_data['id'], loc_data['brief_description'], loc_data['long_description'], loc_data['read_description'],
-                                    loc_data['available_commands'], loc_data['item_check'], loc_data['items'])
+                                    loc_data['item_description'], loc_data['available_commands'], loc_data['item_check'], loc_data['items'])
             locations[loc_data['id']] = location_obj
 
         items = []

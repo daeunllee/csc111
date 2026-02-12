@@ -16,7 +16,7 @@
       "id": 2,
       "name": "Robarts 2F - Study Area",
       "brief_description": "The study area in the Robarts library.",
-      "long_description": "This is your favourite study spot. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You like it here, but so does everyone else. Sometimes it's hard to find an empty seat.",
+      "long_description": "The study area in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You like it here, but so does everyone else. Sometimes it's hard to find an empty seat.",
       "available_commands": {
         "go South": 1,
         "go East": 3,
@@ -30,7 +30,7 @@
       "id": 3,
       "name": "Robarts 2F - Dining Area",
       "brief_description": "The dining area in the Robarts library.",
-      "long_description": "One of the many dining halls avaliable to students. Students like to eat here in between lectures and long studying hours. The Starbucks always has a long line. You don't really want to be reminded of how many caffeinated drinks you've bought here.",
+      "long_description": "The dining area in the Robarts library. Students like to eat here in between lectures and long studying hours. The Starbucks always has a long line. You don't really want to be reminded of how many caffeinated drinks you've bought here.",
       "available_commands": {
         "go West": 2,
         "use phone": 0
@@ -42,8 +42,8 @@
     {
       "id": 4,
       "name": "OISE - Room G162",
-      "brief_description": "a",
-      "long_description": "aa",
+      "brief_description": "The lecture hall for one of your classes.",
+      "long_description": "The lecture hall for one of your classes. You can hear the noise from the subway throughout the building. The desks are tiny and some of them don't work. It definitely isn't your favourite place, but at least the location is convenient.",
       "available_commands": {
         "go East": 1,
         "use phone": 0
@@ -55,8 +55,8 @@
     {
       "id": 5,
       "name": "Oak House",
-      "brief_description": "a",
-      "long_description": "aa",
+      "brief_description": "The student residence you live at.",
+      "long_description": "The student residence you live at. You like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work. You've given up on complaints after the first month of living here.",
       "available_commands": {
         "go West": 1,
         "use phone": 0

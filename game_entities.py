@@ -33,6 +33,7 @@ class Location:
         location.
         - items: A list storing all the available items at a certain location.
         - visited: Whether the player has visited this location before.
+        - req_check: Whether the item is available at a location to take.
 
     Representation Invariants:
         - self.id_num >= 0
@@ -53,6 +54,7 @@ class Location:
     available_commands: dict[str, int]
     items: list[str]
     visited: bool = False
+    req_check: bool = False
 
 
 @dataclass

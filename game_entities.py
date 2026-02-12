@@ -29,6 +29,7 @@ class Location:
         - id_num: A unique integer representing a certain location.
         - brief_description: A short and simple description of a certain location.
         - long_description: A longer, more in-depth, detailed description of a certain location.
+        - read_description: The description that is printed when the 'read' command is selected.
         - available_commands: A dictionary mapping directional commands (in strings) to an id number of the destination
         location.
         - items: A list storing all the available items at a certain location.
@@ -51,6 +52,7 @@ class Location:
     id_num: int
     brief_description: str
     long_description: str
+    read_description: str
     available_commands: dict[str, int]
     items: list[str]
     visited: bool = False

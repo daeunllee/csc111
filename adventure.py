@@ -86,7 +86,7 @@ class AdventureGame:
         locations = {}
         for loc_data in data['locations']:  # Go through each element associated with the 'locations' key in the file
             location_obj = Location(loc_data['id'], loc_data['brief_description'], loc_data['long_description'], loc_data['read_description'],
-                                    loc_data['available_commands'], loc_data['items'])
+                                    loc_data['available_commands'], loc_data['item_check'], loc_data['items'])
             locations[loc_data['id']] = location_obj
 
         items = []
@@ -169,6 +169,7 @@ if __name__ == "__main__":
             elif choice == "look":
                 print(location.long_description)
             elif choice == "inventory":
+                
             elif choice == "score":
             else:
                 print("Thank you so much for playing!")
@@ -181,6 +182,4 @@ if __name__ == "__main__":
             game.current_location_id = result
 
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
-            if choice == "use phone":
-
             # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game

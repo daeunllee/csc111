@@ -15,8 +15,8 @@
     {
       "id": 2,
       "name": "Robarts 2F - Study Area",
-      "brief_description": "The study area in the Robarts library.",
-      "long_description": "The study area in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You like it here, but so does everyone else. Sometimes it's hard to find an empty seat.",
+      "brief_description": "The study space in the Robarts library.",
+      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You like it here, but so does everyone else. Sometimes it's hard to find an empty seat.",
       "available_commands": {
         "go South": 1,
         "go East": 3,

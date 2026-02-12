@@ -15,8 +15,8 @@
     {
       "id": 2,
       "name": "Robarts 2F - Study Area",
-      "brief_description": "You stand at your go-to desk in the study area. This is the only place you study at in this area. Guess you should look someplace else.",
-      "long_description": "To your left, there is a woman's bathroom, elevators, and more sitting spots for studying. To your right, there are long rows of desks, study rooms, and more bathrooms. Then, you finally spot your laptop charger on one of the desks.",
+      "brief_description": "a",
+      "long_description": "aa",
       "available_commands": {
         "go South": 1,
         "go East": 3,

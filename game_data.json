@@ -4,24 +4,30 @@
       "id": 1,
       "name": "Robarts 1F - Entrance",
       "brief_description": "The entrance to the Robarts library.",
-      "long_description": "The entrance to the Robarts library. It's a weekday, so you're not surprised to see a lot of other students around at this time. You keep your head down because you have social anxiety. Thankfully, despite the events of today, you haven't lost your Tcard.",
+      "long_description": "The entrance to the Robarts library. There's a front desk and some machines and computers. It's a weekday, so you're not surprised to see a lot of other students around at this time. You keep your head down because you have social anxiety.",
+      "read_description": "There's some written instructions on a machine for returning books. You remember that you were reading a book while waiting for your laptop to fully charge. Where did you leave that book?",
+      "item_description": "None",
       "available_comands": {
         "go North": 2,
         "go West": 4,
         "go East": 5,
-        "use phone": 0
-      }
+      },
+      "item_check": False,
+      "items": [
+      ]
     },
     {
       "id": 2,
       "name": "Robarts 2F - Study Space",
       "brief_description": "The study space in the Robarts library.",
       "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You can see that someone left a book on one of the couches here.",
+      "read_description": "You pick up the book on the couch, flipped through the pages, and find your laptop charger tucked inside. You used it as a bookmark after reading, and forgot to take the book with you.",
+      "item_description": "Your charger is on the couch.",
       "available_commands": {
         "go South": 1,
         "go East": 3,
-        "use phone": 0
       },
+      "item_check": False,
       "items": [
         "Laptop Charger"
       ]
@@ -30,24 +36,30 @@
       "id": 3,
       "name": "Robarts 2F - Dining Area",
       "brief_description": "The dining area in the Robarts library.",
-      "long_description": "The dining area in the Robarts library. Students like to eat here in between lectures and long studying hours. The Starbucks always has a long line. You don't want to be reminded of how many caffeinated drinks you've bought here.",
+      "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. There's a long line at the Starbucks counter and the microwave.",
+      "read_description": "You read the Starbucks menu. You don't like the idea of protein powder in your coffee.",
+      "item_description": "Your friend left your mug on a table.",
       "available_commands": {
-        "go West": 2,
-        "use phone": 0
+        "go South": 1,
+        "go East": 3,
       },
+      "item_check": False,
       "items": [
-        "U of T Mug"
+        "Lucky Mug"
       ]
     },
     {
       "id": 4,
-      "name": "OISE - Room G162",
-      "brief_description": "The lecture hall for one of your classes.",
-      "long_description": "The lecture hall for one of your classes. You can hear the noise from the subway throughout the building. The desks are tiny and some of them don't work. It definitely isn't your favourite place, but at least the location is convenient.",
+      "name": "Queen's Park",
+      "brief_description": "The local park in the middle of campus.",
+      "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. There's a long line at the Starbucks counter and the microwave.",
+      "read_description": "You read the word on a stop sign. It won't stop you from finding your flash drive.",
+      "item_description": "Your USB Drive is laying in the snow.",
       "available_commands": {
-        "go East": 1,
-        "use phone": 0
+        "go South": 1,
+        "go East": 3,
       },
+      "item_check": False,
       "items": [
         "USB Drive"
       ]
@@ -57,10 +69,15 @@
       "name": "Oak House",
       "brief_description": "The student residence you live at.",
       "long_description": "The student residence you live at. It's very quiet in the lobby, and there's puddles of water and snow on the floor. You like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work.",
+      "read_description": "There's a poster on the wall, telling students to eat well, sleep regularly, and exercise. Unfortunately, you’re the type to lie down on a couch every chance you get.",
+      "item_description": "There is a pair of gloves on the floor. It doesn't seem to belong to anyone.",
       "available_commands": {
         "go West": 1,
-        "use phone": 0
       }
+       "item_check": False,
+      "items": [
+        "Gloves"
+      ]
       },
       {
       "id": 6,
@@ -69,7 +86,6 @@
       "long_description": "The dorm room you live in. It's small and messy, and smells a bit like takeout. There's a desk, bed, and closet. It's nothing much, just enough to live comfortably.",
       "available_commands": {
         "go West": 1,
-        "use phone": 0
       }
     }
   ],
@@ -89,7 +105,7 @@
      "target_points": 50
    },
    {
-      "name": "U of T Mug",
+      "name": "Lucky Mug",
       "description": "Your favourite lucky mug.",
       "start_position": 1,
       "target_position": 0,

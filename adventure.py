@@ -119,7 +119,14 @@ class AdventureGame:
         else:
             return self._locations[loc_id]
 
-
+    def get_item(self, name: str) -> None | Item:
+        """
+        return Item object associated with the provided name.
+        """
+        for x in self._items:
+            if x.name == name:
+                return x
+        return None
 
 
 if __name__ == "__main__":
@@ -139,25 +146,27 @@ if __name__ == "__main__":
     step = 0
     dig_step = 0
 
+
     def display_items(game: AdventureGame) -> None:
         """
         Print a list of all items that the player currently has.
         """
-        if game.inventory == []:
+        if not game.inventory:
             print("Your inventory is empty.")
         else:
             print("Your inventory contains:")
             for item in game.inventory:
-                print("Name: " + item)
+                print("Name: " + item.name)
                 print("Item Points: " + str(item.target_points))
 
-    def take_item(location: Location) -> None:
+
+    def take_item(game: AdventureGame, location: Location) -> None:
         """
         Update the location and player's inventory and score when picking up an item.
         """
 
-        item = location.items[0]:
-        game.inventory.append(item)
+        item = location.items[0]
+        game.inventory.append(game.get_item(item))
         if item == "Phone":
             pass
         elif (item == "Laptop Charger") or (item == "Lucky Mug") or (item == "USB Drive"):
@@ -166,19 +175,22 @@ if __name__ == "__main__":
             game.score += 50
         print("You have found and picked up:", item)
         location.item_check = True
-    def dig_game(step: int, ch: str) -> int:
+
+
+    def dig_game(dig_step: int, ch: str) -> int:
         """
         return an int that represents player's progress through the snow digging minigame.
         """
         directions = {0: "dig", 1: "up", 2: "left", 3: "right", 4: "down", 5: "up"}
-        if directions[step] in ch:
+        if directions[dig_step] in ch:
             print("it's not here, but you feel like you're getting closer.")
-            return step + 1
+            return dig_step + 1
         else:
             print("it's not here, and you've lost track of where you were digging.")
             return 0
-            
-    def dig(location: Location) -> None:
+
+
+    def dig(dig_step: int, location: Location) -> int:
         """
         play the digging minigame based on the player's input.
         """
@@ -188,7 +200,7 @@ if __name__ == "__main__":
             location.available_commands["dig left"] = 0
             location.available_commands["dig right"] = 0
         if dig_step < 6:
-            dig_step = dig_game(dig_step, choice)
+            return dig_game(dig_step, choice)
         else:
             location.item_check = True
             take_item(location)
@@ -197,19 +209,23 @@ if __name__ == "__main__":
             location.available_commands.pop("dig left")
             location.available_commands.pop("dig right")
             location.available_commands.pop("dig")
-            
+            return -1
+
+
     def act(location: Location) -> None:
         """
         print information to the player and update the game based on what item was picked up.
         """
-        item = location.item[0]
+        item = location.items[0]
         if item == "Powerbank":
-            print("Your phone is now charging. You see a message from your friend, who found your mug and left it in the Robarts dining area for you.")
+            print(
+                "Your phone is now charging. You see a message from your friend, who found your mug and left it in the "
+                "Robarts dining area for you.")
             game.get_location(3).item_check = True
-        elif item == "Phone"
+        elif item == "Phone":
             print("Your phone ran out of battery. You might need a powerbank for it.")
             game.get_location(6).item_check = True
-            
+
 
     # Note: You may modify the code below as needed; the following starter code is just a suggestion
     while game.ongoing:
@@ -230,7 +246,7 @@ if __name__ == "__main__":
             location.visited = True
         else:
             print(location.brief_description)
-            
+
         if location.item_check:
             print(location.item_description)
 
@@ -265,7 +281,7 @@ if __name__ == "__main__":
                 print(location.read_description)
                 if location.id_num == 3:
                     print(location.read_description)
-                    location.item_check == True
+                    location.item_check = True
             elif choice == "inventory":
                 display_items(game)
             elif choice == "score":
@@ -274,28 +290,24 @@ if __name__ == "__main__":
                 print("Thank you so much for playing!")
                 break
 
-
         else:
             # Handle non-menu actions
             if "move" in choice:
                 result = location.available_commands[choice]
                 game.current_location_id = result
-                
+
             elif "take" in choice:
                 if not location.item_check:
                     print("There's no item here for you to take.")
                 else:
-                    take_item(location)
+                    take_item(game, location)
                     act(location)
 
-
             elif "dig" in choice:
-                if any(x == "Gloves" for x in game.inventory):
-                    dig()
+                if any(x.name == "Gloves" for x in game.inventory):
+                    dig_step = dig(dig_step, location)
                 else:
                     print("The snow is too cold to touch with your bare hands.")
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
-            
-
 
             # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game

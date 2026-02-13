@@ -4,8 +4,8 @@
       "id": 1,
       "name": "Robarts 1F - Entrance",
       "brief_description": "The entrance to the Robarts library.",
-      "long_description": "The entrance to the Robarts library. There's a front desk and some machines and computers. It's a weekday, so you're not surprised to see a lot of other students around at this time. You keep your head down because you have social anxiety.",
-      "read_description": "There's some written instructions on a machine for returning books. You remember that you were reading a book while waiting for your laptop to fully charge. Where did you leave that book?",
+      "long_description": "The entrance to the Robarts library. There's a front desk and some machines and computers. \nIt's a weekday, so you're not surprised to see a lot of other students around at this time. \nYou keep your head down because you have social anxiety.",
+      "read_description": "There's some written instructions on a machine for returning books. \nYou remember that you were reading a book while waiting for your laptop to fully charge. \nWhere did you leave that book?",
       "item_description": "Your phone is beside you. Take?",
       "available_commands": {
         "go north": 2,
@@ -20,7 +20,7 @@
       "id": 2,
       "name": "Robarts 2F - Dining Area",
       "brief_description": "The dining area in the Robarts library.",
-      "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. There's a long line at the Starbucks counter and the microwave.",
+      "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. \nThere's a long line at the Starbucks counter and the microwave.",
       "read_description": "You read the Starbucks menu. You don't like the idea of protein powder in your coffee.",
       "item_description": "Your friend left your mug on a table. Take?",
       "available_commands": {
@@ -37,8 +37,8 @@
       "id": 3,
       "name": "Robarts 2F - Study Space",
       "brief_description": "The study space in the Robarts library.",
-      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You can see that someone left a book on one of the couches here.",
-      "read_description": "You pick up the book on the couch, flipped through the pages, and find your laptop charger tucked inside. You used it as a bookmark after reading, and forgot to take the book with you.",
+      "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. \nThere's a lot of Starbucks cups and a few energy drink cans scattered around. \nYou can see that someone left a book on one of the couches here.",
+      "read_description": "You pick up the book on the couch, flipped through the pages, and find your laptop charger tucked inside. \nYou used it as a bookmark after reading, and forgot to take the book with you.",
       "item_description": "Your charger is on the couch. Take?",
       "available_commands": {
         "go west": 2
@@ -52,7 +52,7 @@
       "id": 4,
       "name": "Queen's Park",
       "brief_description": "The local park in the middle of campus.",
-      "long_description": "The local park in the middle of campus. The snow made the paths slippery. You remember tripping here earlier and having to pick up the stuff that fell from your pockets. Did you forget something then?",
+      "long_description": "The local park in the middle of campus. The snow made the paths slippery. \nYou remember tripping here earlier and having to pick up the stuff that fell from your pockets. \nDid you forget something then?",
       "read_description": "You read the word on a stop sign. It won't stop you from finding your flash drive.",
       "item_description": "Your USB Drive is laying in the snow. Take?",
       "available_commands": {
@@ -68,8 +68,8 @@
       "id": 5,
       "name": "Oak House",
       "brief_description": "The student residence you live at.",
-      "long_description": "The student residence you live at. It's very quiet in the lobby, and there's puddles of water and snow on the floor. You like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work.",
-      "read_description": "There's a poster on the wall, telling students to eat well, sleep regularly, and exercise. Unfortunately, you’re the type to lie down on a couch every chance you get.",
+      "long_description": "The student residence you live at. It's very quiet in the lobby, and there's puddles of water and snow on the floor. \nYou like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work.",
+      "read_description": "There's a poster on the wall, telling students to eat well, sleep regularly, and exercise. \nUnfortunately, you’re the type to lie down on a couch every chance you get.",
       "item_description": "There is a pair of gloves on the floor. It doesn't seem to belong to anyone. Take?",
       "available_commands": {
         "go west": 6,
@@ -85,7 +85,7 @@
       "id": 6,
       "name": "Dorm room",
       "brief_description": "The dorm room you live in.",
-      "long_description": "The dorm room you live in. It's small and messy, and smells a bit like takeout. There's a desk, bed, and closet. It's nothing much, just enough to live comfortably.",
+      "long_description": "The dorm room you live in. It's small and messy, and smells a bit like takeout. \nThere's a desk, bed, and closet. It's nothing much, just enough to live comfortably.",
       "read_description": "It's your room. You've read everything here.",
       "item_description": "Your powerbank is on the desk. Take?",
       "available_commands": {

@@ -31,7 +31,8 @@ from event_logger import Event, EventList
 
 
 class AdventureGame:
-    """A text adventure game class storing all location, item and map data.
+    """
+    A text adventure game class storing all location, item and map data.
 
     Instance Attributes:
         - current_location_id: The ID number of player's current location.
@@ -82,9 +83,11 @@ class AdventureGame:
 
     @staticmethod
     def _load_game_data(filename: str) -> tuple[dict[int, Location], list[Item]]:
-        """Load locations and items from a JSON file with the given filename and
+        """
+        Load locations and items from a JSON file with the given filename and
         return a tuple consisting of (1) a dictionary of locations mapping each game location's ID to a Location object,
-        and (2) a list of all Item objects."""
+        and (2) a list of all Item objects.
+        """
 
         with open(filename, 'r') as f:
             data = json.load(f)  # This loads all the data from the JSON file
@@ -106,7 +109,8 @@ class AdventureGame:
         return locations, items
 
     def get_location(self, loc_id: Optional[int] = None) -> Location:
-        """Return Location object associated with the provided location ID.
+        """
+        Return Location object associated with the provided location ID.
         If no ID is provided, return the Location object associated with the current location.
         """
 

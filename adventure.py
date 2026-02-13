@@ -100,7 +100,6 @@ class AdventureGame:
             locations[loc_data['id']] = location_obj
 
         items = []
-        # TODO: Add Item objects to the items list; your code should be structured similarly to the loop above
         for loc_items in data['items']:
             item_obj = Item(loc_items['name'], loc_items['description'], loc_items['start_position'])
             items.append(item_obj)
@@ -113,7 +112,6 @@ class AdventureGame:
         If no ID is provided, return the Location object associated with the current location.
         """
 
-        # TODO: Complete this method as specified
         if loc_id is None:
             return self._locations[self.current_location_id]
         else:
@@ -142,104 +140,126 @@ if __name__ == "__main__":
     game_log = EventList()  # This is REQUIRED as one of the baseline requirements
     game = AdventureGame('game_data.json', 1)  # load data, setting initial location ID to 1
     menu = ["look", "read", "inventory", "score", "log", "quit"]  # Regular menu options available at each location
+    drink_menu = ["order a drink", "coffee", "tea", "grande", "venti", "hot", "iced"]
     choice = None
     step = 0
+    step_limit = 100
     dig_step = 0
+    order_step = 0
+    win_step = 500
 
-
-    def display_items(game: AdventureGame) -> None:
+    def display_items(g: AdventureGame) -> None:
         """
         Print a list of all items that the player currently has.
         """
-        if not game.inventory:
+        if not g.inventory:
             print("Your inventory is empty.")
         else:
             print("Your inventory contains:")
-            for item in game.inventory:
+            for item in g.inventory:
                 print("Name: " + item.name)
-                print("Item Points: " + str(item.target_points))
 
 
-    def take_item(game: AdventureGame, location: Location) -> None:
+    def take_item(g: AdventureGame, loc: Location) -> None:
         """
         Update the location and player's inventory and score when picking up an item.
         """
 
-        item = location.items[0]
-        game.inventory.append(game.get_item(item))
-        if item == "Phone":
-            pass
-        elif (item == "Laptop Charger") or (item == "Lucky Mug") or (item == "USB Drive"):
-            game.score += 100
+        item = loc.items[0]
+        g.inventory.append(g.get_item(item))
+
+        if item in {"Laptop Charger", "Lucky Mug", "USB Drive"}:
+            g.score += 100
         else:
-            game.score += 50
+            g.score += 50
         print("You have found and picked up:", item)
-        location.item_check = False
+        loc.item_check = False
 
 
-    def dig_game(dig_step: int, ch: str) -> int:
+    def dig_helper(steps: int, ch: str) -> int:
         """
         return an int that represents player's progress through the snow digging minigame.
         """
         directions = {0: "dig", 1: "up", 2: "left", 3: "right", 4: "down", 5: "up"}
-        if directions[dig_step] in ch:
+        if directions[steps] in ch:
             print("it's not here, but you feel like you're getting closer.")
-            return dig_step + 1
+            return steps + 1
         else:
             print("it's not here, and you've lost track of where you were digging.")
             return 0
 
 
-    def dig(dig_step: int, location: Location) -> int:
+    def dig_game(g: AdventureGame, steps: int, loc: Location) -> int:
         """
         play the digging minigame based on the player's input.
         """
-        if "dig up" not in location.available_commands:
-            location.available_commands["dig up"] = 0
-            location.available_commands["dig down"] = 0
-            location.available_commands["dig left"] = 0
-            location.available_commands["dig right"] = 0
-        if dig_step < 5:
-            return dig_game(dig_step, choice)
+        if "dig up" not in loc.available_commands:
+            g.score += 50
+            loc.available_commands["dig up"] = 0
+            loc.available_commands["dig down"] = 0
+            loc.available_commands["dig left"] = 0
+            loc.available_commands["dig right"] = 0
+        if steps < 5:
+            return dig_helper(steps, choice)
         else:
-            location.item_check = True
-            location.available_commands.pop("dig up")
-            location.available_commands.pop("dig down")
-            location.available_commands.pop("dig left")
-            location.available_commands.pop("dig right")
-            location.available_commands.pop("dig")
+            loc.item_check = True
+            loc.available_commands.pop("dig up")
+            loc.available_commands.pop("dig down")
+            loc.available_commands.pop("dig left")
+            loc.available_commands.pop("dig right")
+            loc.available_commands.pop("dig")
             return -1
 
 
-    def act(location: Location) -> None:
+    def act(g: AdventureGame, loc: Location) -> None:
         """
         print information to the player and update the game based on what item was picked up.
         """
-        item = location.items[0]
+        item = loc.items[0]
         if item == "Powerbank":
             print(
                 "Your phone is now charging. You see a message from your friend, who found your mug and left it in the "
                 "Robarts dining area for you.")
-            game.get_location(2).item_check = True
+            g.get_location(2).item_check = True
         elif item == "Phone":
             print("Your phone ran out of battery. You might need a powerbank for it.")
-            game.get_location(6).item_check = True
+            g.get_location(6).item_check = True
 
 
-    # Note: You may modify the code below as needed; the following starter code is just a suggestion
+    def order_drink(ch: str, steps: int) -> tuple[int, int]:
+        """
+        Order a personalized drink at starbucks with a list of commands. Increases the allowed amount of steps taken
+        for this game.
+        """
+        order = {"order a drink": 0, "coffee": 10, "tea": 5, "grande": 5, "venti": 10, "iced": 5, "hot": 10}
+        response = {1: "Coffee or tea?", 2: "Grande or venti?", 3: "Hot or iced?"}
+
+        if ((steps == 0 and ch == "order a drink") or (steps == 1 and ch in {"coffee", "tea"}) or
+                (steps == 2 and ch in {"grande", "venti"})):
+            print(response[steps + 1])
+            return order[ch], steps+1
+        elif steps == 3 and (ch == "hot" or ch == "iced"):
+            print("You got a nice drink and feel recharged. You're ready to put in more work.")
+            return order[ch], -1
+        elif steps == -1:
+            print("You already got a drink today.")
+            return 0, steps
+        else:
+            print("Not what they asked you.")
+            print(response[steps])
+            return 0, steps
+            # Note: You may modify the code below as needed; the following starter code is just a suggestion
+
+
     while game.ongoing:
         # Note: If the loop body is getting too long, you should split the body up into helper functions
         # for better organization. Part of your mark will be based on how well-organized your code is.
 
         location = game.get_location()
 
-        # TODO: Add new Event to game log to represent current game location
-        #  Note that the <choice> variable should be the command which led to this event
         new_event = Event(location.id_num, location.long_description)
         game_log.add_event(new_event, choice)
 
-        # TODO: Depending on whether or not it's been visited before,
-        #  print either full description (first time visit) or brief description (every subsequent visit) of location
         if not location.visited:
             print(location.long_description)
             location.visited = True
@@ -257,16 +277,11 @@ if __name__ == "__main__":
 
         # Validate choice
         choice = input("\nEnter action: ").lower().strip()
-        while choice not in location.available_commands and choice not in menu and choice != "take":
+
+        valid_choices = set(location.available_commands) | set(menu) | set(drink_menu) | {"take"}
+        while choice not in valid_choices:
             print("That was an invalid option; try again.")
             choice = input("\nEnter action: ").lower().strip()
-
-        if step > 60:
-            print("The day is over and you haven't found all your items. Game over.")
-            break
-        if game.score == 400:
-            print("You found all your lost items! Great job!")
-            break
 
         print("========")
         print("You decided to:", choice)
@@ -274,7 +289,6 @@ if __name__ == "__main__":
         print("steps taken: " + f"{step}")
 
         if choice in menu:
-            # TODO: Handle each menu command as appropriate
             if choice == "log":
                 game_log.display_events()
             # ENTER YOUR CODE BELOW to handle other menu commands (remember to use helper functions as appropriate)
@@ -292,6 +306,14 @@ if __name__ == "__main__":
                 print("Thank you so much for playing!")
                 break
 
+        elif choice in drink_menu:
+            if location.id_num != 2:
+                print("This place doesn't take your starbucks order.")
+            else:
+                temp = order_drink(choice, order_step)
+                step_limit += temp[0]
+                order_step = temp[1]
+
         else:
             # Handle non-menu actions
             if "take" in choice:
@@ -299,18 +321,21 @@ if __name__ == "__main__":
                     print("There's no item here for you to take.")
                 else:
                     take_item(game, location)
-                    act(location)
+                    act(game, location)
 
             elif "dig" in choice:
                 if any(x.name == "Gloves" for x in game.inventory):
-                    dig_step = dig(dig_step, location)
+                    dig_step = dig_game(game, dig_step, location)
                 else:
                     print("The snow is too cold to touch with your bare hands.")
 
             elif choice in location.available_commands:
                 result = location.available_commands[choice]
                 game.current_location_id = result
-            # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
 
-            # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game
-
+        if step > step_limit:
+            print("Your project is now overdue, but you still haven't found all the items. Game over.")
+            break
+        if game.score == win_step and location.id_num == 6:
+            print("You found all your lost items and made it back to your dorm! Great job!")
+            break

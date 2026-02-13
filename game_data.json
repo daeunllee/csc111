@@ -6,7 +6,7 @@
       "brief_description": "The entrance to the Robarts library.",
       "long_description": "The entrance to the Robarts library. There's a front desk and some machines and computers. It's a weekday, so you're not surprised to see a lot of other students around at this time. You keep your head down because you have social anxiety.",
       "read_description": "There's some written instructions on a machine for returning books. You remember that you were reading a book while waiting for your laptop to fully charge. Where did you leave that book?",
-      "item_description": "None",
+      "item_description": "Your phone is beside you. Take?",
       "available_comands": {
         "go north": 2,
         "go south": 5

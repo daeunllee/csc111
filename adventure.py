@@ -239,7 +239,7 @@ if __name__ == "__main__":
             print(response[steps + 1])
             return order[ch], steps+1
         elif steps == 3 and (ch == "hot" or ch == "iced"):
-            print("You got a nice drink and feel recharged. You feel like you can work faster now.")
+            print("You got a drink and feel recharged. You can now get more things done before 1pm.")
             return order[ch], -1
         elif steps == -1:
             print("You already got a drink today.")

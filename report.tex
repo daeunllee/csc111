@@ -29,8 +29,8 @@ Starting location is: 1
 \section*{Game solution}
 List of commands:\\ 
 
-"take", "go south", "go west", "take", "go east", "take", "read", "go east", "dig", 
-"dig up", "dig left", "dig right", "dig down", "dig up", "take", "go west", "go north", "read", "go north", "take", "go east", "read", "take", "go west", "go south", "go south", "go west", "inventory"
+take, go south, go west, take, go east, take, read, go east, dig, 
+dig up, dig left, dig right, dig down, dig up, take, go west, go north, read, go north, take, go east, read, take, go west, go south, go south, go west, inventory
 
 \section*{Lose condition(s)}
 Description of how to lose the game:\\
@@ -39,10 +39,10 @@ If the player takes too long (as in, types in more than 100 commands), the playe
 
 List of commands: \\
 
-"go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look",
-"inventory", "go north"\\
+go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look, inventory, go north, go south, read, look,
+inventory, go north\\
 
-(a.k.a, the pattern of "go north", "go south", "read", "look", "inventory" repeated 20 times, then an additional "go north", all in that order) \\
+(a.k.a, the pattern of go north, go south, read, look, inventory repeated 20 times, then an additional go north, all in that order) \\
 
 Which parts of your code are involved in this functionality:\\
 
@@ -98,7 +98,7 @@ In the main function, the game keeps up the player's steps, and since the step\_
 
     \item Exact command(s) that should be used to pick up an item (choose any one or more items for this example), and the command(s) used to use/drop the item (can copy the list you assigned to \texttt{inventory\_demo} in the \texttt{simulation.py} file) \\
 
-    "take", "inventory", "go north", "go east", "read", "take", "inventory" 
+    take, inventory, go north, go east, read, take, inventory 
     
     \item Which parts of your code (file, class, function/method) are involved in handling the \texttt{inventory} command:
     
@@ -114,7 +114,7 @@ In the main function, the game keeps up the player's steps, and since the step\_
     
     \item Copy the list you assigned to \texttt{scores\_demo} in the \texttt{simulation.py} file into this section of the report:\\
     
-    "take", "score", "go south", "go west", "take", "score", "go east", "go north", "go north", "take", "score"
+    take, score, go south, go west, take, score, go east, go north, go north, take, score
 
     \item Which parts of your code (file, class, function/method) are involved in handling the \texttt{score} functionality:
     
@@ -129,21 +129,21 @@ In the main function, the game keeps up the player's steps, and since the step\_
     \begin{itemize}
         \item Brief description of what the enhancement is (if it's a puzzle, also describe what steps the player must take to solve it): \\
 
-        Along with all the other menu commands, there is an additional "read" command that displays additional hints or information the player could use as a lead to finding the three main items. \\
+        Along with all the other menu commands, there is an additional read command that displays additional hints or information the player could use as a lead to finding the three main items. \\
         
         \item Complexity level (choose from low/medium/high): Medium
         \item Reasons you believe this is the complexity level (e.g., mention implementation details, how much code did you have to add/change from the baseline, what challenges did you face, etc.) \\
         
-        For every single location, we had to add more descriptions, and when it came to running the main game, we had to add extra if statements. The command would give the player more choices, and it was a challenge to think of ways to incorporate the "read" command to help the player reach their goal to win the game. 
+        For every single location, we had to add more descriptions, and when it came to running the main game, we had to add extra if statements. The command would give the player more choices, and it was a challenge to think of ways to incorporate the read command to help the player reach their goal to win the game. 
         
         \item Name the parts of the code which are involved in this enhancement\\
         
         - In game\_entities.py, the instance attribute read\_description was added.\\
-        - In adventure.py, in the main function, "read" was added as one of the options in the menu list.\\
-        - Helper function act() was added to incorporate new action when "read" command is used for one of the items ("Phone") and whether or not the player had item "Powerbank".\\
-        - In the while loop, an extra if statement for when player's choice is "read" was added.\\
+        - In adventure.py, in the main function, read was added as one of the options in the menu list.\\
+        - Helper function act() was added to incorporate new action when read command is used for one of the items (Phone) and whether or not the player had item Powerbank.\\
+        - In the while loop, an extra if statement for when player's choice is read was added.\\
         \item Copy the list you assigned to \texttt{enhancements\_demo} in the \texttt{simulation.py} file into this section of the report:\\
-        "take", "read", "go north", "read", "go east", "read", "take"\\
+        take, read, go north, read, go east, read, take\\
     \end{itemize}
 
     \item Describe enhancement \#2 here
@@ -160,34 +160,33 @@ In the main function, the game keeps up the player's steps, and since the step\_
 
         - In adventure.py, in the main function, a new menu list was added to store different options for the player when ordering at Starbucks.\\
         - The order\_step variable was added to keep track of the player's steps while ordering, and to make sure the player is only allowed to order from Starbucks once.\\
-        - A new helper function was added, order\_drink(), which is used in the while loop when the player selects the "order a drink" command at location 2. The function uses if statements to display necessary responses to what order choices the player chooses and keeps track of whether or not the player has already ordered a drink before in the current game.\\
+        - A new helper function was added, order\_drink(), which is used in the while loop when the player selects the order a drink command at location 2. The function uses if statements to display necessary responses to what order choices the player chooses and keeps track of whether or not the player has already ordered a drink before in the current game.\\
 
         \item Copy the list you assigned to \texttt{enhancements\_demo} in the \texttt{simulation.py} file into this section of the report:\\
-        "go north", "order a drink", "coffee", "venti", "hot"
+        go north, order a drink, coffee, venti, hot
     \end{itemize}
 
     \item Describe enhancement \#3 here
     \begin{itemize}
         \item Basic description of what the enhancement is:\\
         
-        When the player picks up item "Gloves" from location 5, go to location 4, and select the "dig" option, the player will able to start the mini puzzle. The player must figure out the correct combination of commands of "dig up", "dig down", "dig left", and "dig right" that will reveal one of the main three items, "USB Drive", buried in the snow. The correct combination is typing "dig up", "dig left", "dig right", "dig down", then "dig up" in that order. \\
+        When the player picks up item Gloves from location 5, go to location 4, and select the dig option, the player will able to start the mini puzzle. The player must figure out the correct combination of commands of dig up, dig down, dig left, and dig right that will reveal one of the main three items, USB Drive, buried in the snow. The correct combination is typing dig up, dig left, dig right, dig down, then dig up in that order. \\
         \item Complexity level (low/medium/high): High
         \item Reasons you believe this is the complexity level (e.g., mention implementation details) \\
         
-        The complexity level is high for many reasons, one of them being because this enhancement required two helper function compared to the other two enhancements. It was also harder to implement because this was more of a "blind maze" type of puzzle, determining the difficulty level. Because it could not be too difficult or too easy, the combination had to be carefully selected. Small hints had to also be implemented in one of the helper functions, which was another difficult task. Compared to the other two enhancements, even more commands had to be added, and another issue was removing those extra commands once the player had completed the "dig" task successfully. \\
+        The complexity level is high for many reasons, one of them being because this enhancement required two helper function compared to the other two enhancements. It was also harder to implement because this was more of a blind maze type of puzzle, determining the difficulty level. Because it could not be too difficult or too easy, the combination had to be carefully selected. Small hints had to also be implemented in one of the helper functions, which was another difficult task. Compared to the other two enhancements, even more commands had to be added, and another issue was removing those extra commands once the player had completed the dig task successfully. \\
         
         \item Name the parts of the code which are involved in this enhancement\\
 
-        - In adventure.py, in the main function, extra variables "dig step" was added to keep track of the amount of steps the player takes for every dig command. \\
+        - In adventure.py, in the main function, extra variables dig step was added to keep track of the amount of steps the player takes for every dig command. \\
         - The helper function dig\_helper() keeps track of the steps the player has taken for each choice made in the mini game and gives small hints redirecting or confirming their choices.\\
         - The helper function dig\_game() adds temporary commands to available\_commands (instance attribute in Location class located in game\_entities.py) and displays them for the player to see. Once the player wins and finishes the game, the temporary commands are removed from the dictionary.\\
-        - In the while loop, if player's choice is "dig", inventory is checked to see if the player has picked up item "Gloves", and only then  can the player solve the mini puzzle.\\
+        - In the while loop, if player's choice is dig, inventory is checked to see if the player has picked up item Gloves, and only then  can the player solve the mini puzzle.\\
 
         \item Copy the list you assigned to \texttt{enhancements\_demo} in the \texttt{simulation.py} file into this section of the report:\\
-        "go south", "take", "go east", "dig", "dig up", "dig left", "dig right", "dig down", "dig up", "take"
+        go south, take, go east, dig, dig up, dig left, dig right, dig down, dig up, take
     \end{itemize}
 \end{enumerate}
 
 
 \end{document}
-

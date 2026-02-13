@@ -49,6 +49,7 @@ class AdventureGame:
     _items: list[Item]
     current_location_id: int  # Suggested attribute, can be removed
     ongoing: bool  # Suggested attribute, can be removed
+    inventory: list[Item]
 
     def __init__(self, game_data_file: str, initial_location_id: int) -> None:
         """
@@ -73,6 +74,7 @@ class AdventureGame:
         # Suggested attributes (you can remove and track these differently if you wish to do so):
         self.current_location_id = initial_location_id  # game begins at this location
         self.ongoing = True  # whether the game is ongoing
+        self.inventory = []
 
     @staticmethod
     def _load_game_data(filename: str) -> tuple[dict[int, Location], list[Item]]:
@@ -107,6 +109,17 @@ class AdventureGame:
             return self._locations[self.current_location_id]
         else:
             return self._locations[loc_id]
+            
+    def display_items(self) -> None:
+        """Print a list of all items that the player currently has.
+        """
+        if not self.inventory:
+            print("Your inventory is empty.")
+        else:
+            print("Your inventory contains:")
+            for item in self.inventory:
+                print("Name:" + item.name)
+                print("Item Points:" + str(item.target_points))
 
 
 
@@ -168,7 +181,8 @@ if __name__ == "__main__":
             elif choice == "look":
                 print(location.long_description)
             elif choice == "inventory":
-                
+                game.display_items()
+                print()
             elif choice == "score":
             else:
                 print("Thank you so much for playing!")

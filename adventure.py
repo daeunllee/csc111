@@ -206,6 +206,9 @@ if __name__ == "__main__":
         if item == "Powerbank":
             print("Your phone is now charging. You see a message from your friend, who found your mug and left it in the Robarts dining area for you.")
             game.get_location(3).item_check = True
+        elif item == "Phone"
+            print("Your phone ran out of battery. You might need a powerbank for it.")
+            game.get_location(6).item_check = True
             
 
     # Note: You may modify the code below as needed; the following starter code is just a suggestion
@@ -245,7 +248,7 @@ if __name__ == "__main__":
         step += 1
         print("steps taken: " + f"{step}")
 
-        if step > 200:
+        if step > 60:
             print("The day is over and you haven't found all your items. Game over.")
             break
         print("========")
@@ -258,8 +261,11 @@ if __name__ == "__main__":
             # ENTER YOUR CODE BELOW to handle other menu commands (remember to use helper functions as appropriate)
             elif choice == "look":
                 print(location.long_description)
-             elif choice == "read":
+            elif choice == "read":
                 print(location.read_description)
+                if location.id_num == 3:
+                    print(location.read_description)
+                    location.item_check == True
             elif choice == "inventory":
                 display_items(game)
             elif choice == "score":

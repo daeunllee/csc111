@@ -134,7 +134,7 @@ if __name__ == "__main__":
                  "read", "look", "inventory", "go north", "go south", "read", "look", "inventory", "go north",
                  "go south", "read", "look", "inventory", "go north", "go south", "read", "look", "inventory",
                  "go north", "go south", "read", "look", "inventory", "go north", "go south", "read", "look",
-                 "inventory", ]
+                 "inventory", "go north"]
     expected_log = [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1,
                     1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1,
                     2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1,

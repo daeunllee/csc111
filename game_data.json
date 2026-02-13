@@ -25,7 +25,8 @@
       "item_description": "Your friend left your mug on a table. Take?",
       "available_commands": {
         "go south": 1,
-        "go east": 3
+        "go east": 3,
+        "order a drink": 2
       },
       "item_check": false,
       "items": [
@@ -56,7 +57,7 @@
       "item_description": "Your USB Drive is laying in the snow. Take?",
       "available_commands": {
         "go west": 5,
-        "dig": 0
+        "dig": 4
       },
       "item_check": false,
       "items": [
@@ -127,5 +128,8 @@
       "description": "Your powerbank that's charging your phone right now.",
       "start_position": 6
     }
+  ]
+}
+
   ]
 }

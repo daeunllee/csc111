@@ -31,8 +31,7 @@ from event_logger import Event, EventList
 
 
 class AdventureGame:
-    """
-    A text adventure game class storing all location, item and map data.
+    """A text adventure game class storing all location, item and map data.
 
     Instance Attributes:
         - current_location_id: The ID number of player's current location.

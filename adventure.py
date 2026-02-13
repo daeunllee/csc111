@@ -138,7 +138,8 @@ if __name__ == "__main__":
     dig_step = 0
 
     def display_items(game) -> None:
-        """Print a list of all items that the player currently has.
+        """
+        Print a list of all items that the player currently has.
         """
         if not game.inventory:
             print("Your inventory is empty.")
@@ -148,9 +149,9 @@ if __name__ == "__main__":
                 print("Name: " + item.name)
                 print("Item Points: " + str(item.target_points))
 
-    def add_items_and_score(game) -> None:
+    def take_item(game) -> None:
         """
-        Add a new item and update player's score when visiting a location for the first time.
+        Update the location and player's inventory and score when picking up an item.
         """
         location = game.get_location()
 
@@ -167,7 +168,7 @@ if __name__ == "__main__":
                 location.item_check = True
     def dig_game(step: int, ch: str) -> int:
         """
-        a helper function for the minigame involving digging the snow for the usb.
+        return an int that represents player's progress through the snow digging minigame.
         """
         directions = {0: "dig", 1: "up", 2: "left", 3: "right", 4: "down", 5: "up"}
         if directions[step] in ch:

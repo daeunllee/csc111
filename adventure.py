@@ -336,6 +336,6 @@ if __name__ == "__main__":
                 result = location.available_commands[choice]
                 game.current_location_id = result
 
-        if step > step_limit:
+        if step >= step_limit:
             print("It's 1pm and your project is due, but you still haven't found all the items. Game over.")
             break

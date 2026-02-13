@@ -139,7 +139,7 @@ if __name__ == "__main__":
     step = 0
     dig_step = 0
 
-    def display_items(game) -> None:
+    def display_items(game: AdventureGame) -> None:
         """
         Print a list of all items that the player currently has.
         """
@@ -151,11 +151,10 @@ if __name__ == "__main__":
                 print("Name: " + item.name)
                 print("Item Points: " + str(item.target_points))
 
-    def take_item(game) -> None:
+    def take_item(location: Location) -> None:
         """
         Update the location and player's inventory and score when picking up an item.
         """
-        location = game.get_location()
 
         for item in location.items:
             if item.start_position == location.id_num:
@@ -179,6 +178,24 @@ if __name__ == "__main__":
         else:
             print("it's not here, and you've lost track of where you were digging.")
             return 0
+            
+    def dig(location: Location) -> None:
+        """
+        play the digging minigame based on the player's input.
+        """
+        if "dig up" not in location.available_commands:
+            location.available_commands["dig up"] = 0
+            location.available_commands["dig down"] = 0
+            location.available_commands["dig left"] = 0
+            location.available_commands["dig right"] = 0
+        if dig_step < 6:
+            dig_step = dig_game(dig_step, choice)
+        else:
+            location.available_commands.pop("dig up")
+            location.available_commands.pop("dig down")
+            location.available_commands.pop("dig left")
+            location.available_commands.pop("dig right")
+            location.available_commands.pop("dig")
             
 
 
@@ -213,7 +230,7 @@ if __name__ == "__main__":
 
         # Validate choice
         choice = input("\nEnter action: ").lower().strip()
-        while choice not in location.available_commands and choice not in menu:
+        while choice not in location.available_commands and choice not in menu and choice == "take":
             print("That was an invalid option; try again.")
             choice = input("\nEnter action: ").lower().strip()
         step += 1
@@ -248,28 +265,17 @@ if __name__ == "__main__":
             if "move" in choice:
                 result = location.available_commands[choice]
                 game.current_location_id = result
+                
             elif "take" in choice:
                 if not location.item_check:
                     print("There's no item here for you to take.")
                 else:
+                    take_item(location)
 
 
             elif "dig" in choice:
                 if any(x.start_position == 5 for x in game.inventory):
-                    if "dig up" not in location.available_commands:
-                        location.available_commands["dig up"] = 0
-                        location.available_commands["dig down"] = 0
-                        location.available_commands["dig left"] = 0
-                        location.available_commands["dig right"] = 0
-                    if dig_step < 6:
-                        dig_step = dig_game(dig_step, choice)
-                    else:
-                        location.available_commands.pop("dig up")
-                        location.available_commands.pop("dig down")
-                        location.available_commands.pop("dig left")
-                        location.available_commands.pop("dig right")
-                        location.available_commands.pop("dig")
-
+                    dig()
                 else:
                     print("The snow is too cold to touch with your bare hands.")
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)

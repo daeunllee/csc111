@@ -143,7 +143,7 @@ if __name__ == "__main__":
         """
         Print a list of all items that the player currently has.
         """
-        if not game.inventory:
+        if game.inventory == []:
             print("Your inventory is empty.")
         else:
             print("Your inventory contains:")

@@ -34,10 +34,13 @@ class AdventureGame:
     """A text adventure game class storing all location, item and map data.
 
     Instance Attributes:
-        - # TODO add descriptions of public instance attributes as needed
+        - current_location_id: The ID number of player's current location.
+        - inventory: A list of all Item objects the player has found/taken.
+        - score: Total numerical score of the player depending on what items the player has picked up.
 
     Representation Invariants:
-        - # TODO add any appropriate representation invariants as needed
+        - self.current_location_id >= 1
+        - self.score >= 0
     """
 
     # Private Instance Attributes (do NOT remove these two attributes):
@@ -48,8 +51,8 @@ class AdventureGame:
     _locations: dict[int, Location]
     _items: list[Item]
     current_location_id: int  # Suggested attribute, can be removed
-    ongoing: bool  # Suggested attribute, can be removed
     inventory: list[Item]
+    score: int
 
     def __init__(self, game_data_file: str, initial_location_id: int) -> None:
         """
@@ -75,6 +78,7 @@ class AdventureGame:
         self.current_location_id = initial_location_id  # game begins at this location
         self.ongoing = True  # whether the game is ongoing
         self.inventory = []
+        self.score = 0
 
     @staticmethod
     def _load_game_data(filename: str) -> tuple[dict[int, Location], list[Item]]:
@@ -87,14 +91,17 @@ class AdventureGame:
 
         locations = {}
         for loc_data in data['locations']:  # Go through each element associated with the 'locations' key in the file
-            location_obj = Location(loc_data['id'], loc_data['brief_description'], loc_data['long_description'], loc_data['read_description'],
-                                    loc_data['item_description'], loc_data['available_commands'], loc_data['item_check'], loc_data['items'])
+            location_obj = Location(loc_data['id'], loc_data['brief_description'], loc_data['long_description'],
+                                    loc_data['read_description'],
+                                    loc_data['item_description'], loc_data['available_commands'],
+                                    loc_data['item_check'], loc_data['items'])
             locations[loc_data['id']] = location_obj
 
         items = []
         # TODO: Add Item objects to the items list; your code should be structured similarly to the loop above
         for loc_items in data['items']:
-            item_obj = Item(loc_items['name'], loc_items['description'], loc_items['start_position'], loc_items['target_points'])
+            item_obj = Item(loc_items['name'], loc_items['description'], loc_items['start_position'],
+                            loc_items['target_points'])
             items.append(item_obj)
 
         return locations, items
@@ -109,7 +116,7 @@ class AdventureGame:
             return self._locations[self.current_location_id]
         else:
             return self._locations[loc_id]
-            
+
     def display_items(self) -> None:
         """Print a list of all items that the player currently has.
         """
@@ -120,6 +127,23 @@ class AdventureGame:
             for item in self.inventory:
                 print("Name:" + item.name)
                 print("Item Points:" + str(item.target_points))
+
+    def add_items_and_score(self, loc_id: Optional[int] = None) -> None:
+        """
+        Add a new item and update player's score when visiting a location for the first time.
+        """
+        location = self.get_location(loc_id)
+
+        if not location.visited:
+            for item in self._items:
+                if item.start_position == location.id_num:
+                    self.inventory.append(item)
+                    self.score += item.target_points
+                    print("You have found and picked up:", item.name)
+
+        location.visited = True
+
+
 
 
 
@@ -157,7 +181,6 @@ if __name__ == "__main__":
         else:
             print(location.brief_description)
 
-
         # Display possible actions at this location
         print("What to do? Choose from: look, inventory, score, log, quit")
         print("At this location, you can also:")
@@ -184,6 +207,7 @@ if __name__ == "__main__":
                 game.display_items()
                 print()
             elif choice == "score":
+                print(game.score)
             else:
                 print("Thank you so much for playing!")
                 break
@@ -195,4 +219,7 @@ if __name__ == "__main__":
             game.current_location_id = result
 
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
+            game.add_items_and_score()
+
+
             # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game

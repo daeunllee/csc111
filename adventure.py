@@ -174,7 +174,7 @@ if __name__ == "__main__":
         else:
             game.score += 50
         print("You have found and picked up:", item)
-        location.item_check = True
+        location.item_check = False
 
 
     def dig_game(dig_step: int, ch: str) -> int:
@@ -199,11 +199,10 @@ if __name__ == "__main__":
             location.available_commands["dig down"] = 0
             location.available_commands["dig left"] = 0
             location.available_commands["dig right"] = 0
-        if dig_step < 6:
+        if dig_step < 5:
             return dig_game(dig_step, choice)
         else:
             location.item_check = True
-            take_item(location)
             location.available_commands.pop("dig up")
             location.available_commands.pop("dig down")
             location.available_commands.pop("dig left")
@@ -221,7 +220,7 @@ if __name__ == "__main__":
             print(
                 "Your phone is now charging. You see a message from your friend, who found your mug and left it in the "
                 "Robarts dining area for you.")
-            game.get_location(3).item_check = True
+            game.get_location(2).item_check = True
         elif item == "Phone":
             print("Your phone ran out of battery. You might need a powerbank for it.")
             game.get_location(6).item_check = True
@@ -251,24 +250,28 @@ if __name__ == "__main__":
             print(location.item_description)
 
         # Display possible actions at this location
-        print("What to do? Choose from: look, inventory, score, log, quit")
+        print("What to do? Choose from: look, read, inventory, score, log, quit")
         print("At this location, you can also:")
         for action in location.available_commands:
             print("-", action)
 
         # Validate choice
         choice = input("\nEnter action: ").lower().strip()
-        while choice not in location.available_commands and choice not in menu and choice == "take":
+        while choice not in location.available_commands and choice not in menu and choice != "take":
             print("That was an invalid option; try again.")
             choice = input("\nEnter action: ").lower().strip()
-        step += 1
-        print("steps taken: " + f"{step}")
 
         if step > 60:
             print("The day is over and you haven't found all your items. Game over.")
             break
+        if game.score == 400:
+            print("You found all your lost items! Great job!")
+            break
+
         print("========")
         print("You decided to:", choice)
+        step += 1
+        print("steps taken: " + f"{step}")
 
         if choice in menu:
             # TODO: Handle each menu command as appropriate
@@ -280,7 +283,6 @@ if __name__ == "__main__":
             elif choice == "read":
                 print(location.read_description)
                 if location.id_num == 3:
-                    print(location.read_description)
                     location.item_check = True
             elif choice == "inventory":
                 display_items(game)
@@ -292,11 +294,7 @@ if __name__ == "__main__":
 
         else:
             # Handle non-menu actions
-            if "move" in choice:
-                result = location.available_commands[choice]
-                game.current_location_id = result
-
-            elif "take" in choice:
+            if "take" in choice:
                 if not location.item_check:
                     print("There's no item here for you to take.")
                 else:
@@ -308,6 +306,11 @@ if __name__ == "__main__":
                     dig_step = dig(dig_step, location)
                 else:
                     print("The snow is too cold to touch with your bare hands.")
+
+            elif choice in location.available_commands:
+                result = location.available_commands[choice]
+                game.current_location_id = result
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
 
             # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game
+

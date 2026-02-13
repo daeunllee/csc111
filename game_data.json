@@ -8,8 +8,8 @@
       "read_description": "There's some written instructions on a machine for returning books. You remember that you were reading a book while waiting for your laptop to fully charge. Where did you leave that book?",
       "item_description": "None",
       "available_comands": {
-        "go North": 2,
-        "go South": 5
+        "go north": 2,
+        "go south": 5
       },
       "item_check": False,
       "items": [
@@ -21,10 +21,10 @@
       "brief_description": "The dining area in the Robarts library.",
       "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. There's a long line at the Starbucks counter and the microwave.",
       "read_description": "You read the Starbucks menu. You don't like the idea of protein powder in your coffee.",
-      "item_description": "Your friend left your mug on a table.",
+      "item_description": "Your friend left your mug on a table. Take?",
       "available_commands": {
-        "go South": 1,
-        "go East": 3
+        "go south": 1,
+        "go east": 3
       },
       "item_check": False,
       "items": [
@@ -37,9 +37,9 @@
       "brief_description": "The study space in the Robarts library.",
       "long_description": "The study space in the Robarts library. The windows keep the place well-lit and slightly less depressing. There's a lot of Starbucks cups and a few energy drink cans scattered around. You can see that someone left a book on one of the couches here.",
       "read_description": "You pick up the book on the couch, flipped through the pages, and find your laptop charger tucked inside. You used it as a bookmark after reading, and forgot to take the book with you.",
-      "item_description": "Your charger is on the couch.",
+      "item_description": "Your charger is on the couch. Take?",
       "available_commands": {
-        "go West": 2
+        "go west": 2
       },
       "item_check": False,
       "items": [
@@ -52,10 +52,10 @@
       "brief_description": "The local park in the middle of campus.",
       "long_description": "The dining area in the Robarts library. A lot of students like to eat here between lectures, including yourself. There's a long line at the Starbucks counter and the microwave.",
       "read_description": "You read the word on a stop sign. It won't stop you from finding your flash drive.",
-      "item_description": "Your USB Drive is laying in the snow.",
+      "item_description": "Your USB Drive is laying in the snow. Take?",
       "available_commands": {
-        "go East": 5,
-        "Dig"
+        "go east": 5,
+        "dig": 0
       },
       "item_check": False,
       "items": [
@@ -68,10 +68,10 @@
       "brief_description": "The student residence you live at.",
       "long_description": "The student residence you live at. It's very quiet in the lobby, and there's puddles of water and snow on the floor. You like how close it is to the Robarts library, but you hate the elevator and keycard system that doesn't always work.",
       "read_description": "There's a poster on the wall, telling students to eat well, sleep regularly, and exercise. Unfortunately, you’re the type to lie down on a couch every chance you get.",
-      "item_description": "There is a pair of gloves on the floor. It doesn't seem to belong to anyone.",
+      "item_description": "There is a pair of gloves on the floor. It doesn't seem to belong to anyone. Take?",
       "available_commands": {
-        "go West": 6,
-        "go East": 4
+        "go west": 6,
+        "go east": 4
       }
       "item_check": True,
       "items": [
@@ -84,9 +84,9 @@
       "brief_description": "The dorm room you live in.",
       "long_description": "The dorm room you live in. It's small and messy, and smells a bit like takeout. There's a desk, bed, and closet. It's nothing much, just enough to live comfortably.",
       "read_description": "It's your room. You've read everything here.",
-      "item_description": "Your powerbank is on the desk.",
+      "item_description": "Your powerbank is on the desk. Take?",
       "available_commands": {
-        "go East": 5,
+        "go east": 5
       }
       "item_check": True,
       "items": [

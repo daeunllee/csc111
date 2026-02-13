@@ -164,7 +164,7 @@ if __name__ == "__main__":
                 else:
                     game.score += 50
                 print("You have found and picked up:", item.name)
-                item.item_check = True
+                location.item_check = True
     def dig_game(step: int, ch: str) -> int:
         """
         a helper function for the minigame involving digging the snow for the usb.

@@ -1,4 +1,4 @@
-""""CSC111 Project 1: Text Adventure Game - Simulator
+"""CSC111 Project 1: Text Adventure Game - Simulator
 
 Instructions (READ THIS FIRST!)
 ===============================
@@ -164,4 +164,8 @@ if __name__ == "__main__":
     sim = AdventureGameSimulation('game_data.json', 1, order_drink_demo)
     assert expected_log == sim.get_id_log()
 
+    dig_demo = ["go south", "take", "go east", "dig", "dig up", "dig left", "dig right", "dig down", "dig up", "take"]
+    expected_log = [1, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4]
+    sim = AdventureGameSimulation('game_data.json', 1, dig_demo)
+    assert expected_log == sim.get_id_log()
     # Note: You can add more code below for your own testing purposes

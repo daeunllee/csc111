@@ -337,5 +337,5 @@ if __name__ == "__main__":
                 game.current_location_id = result
 
         if step > step_limit:
-            print("Your project is now overdue, but you still haven't found all the items. Game over.")
+            print("It's 1pm and your project is due, but you still haven't found all the items. Game over.")
             break

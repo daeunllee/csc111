@@ -134,6 +134,7 @@ if __name__ == "__main__":
     game = AdventureGame('game_data.json', 1)  # load data, setting initial location ID to 1
     menu = ["look", "read", "inventory", "score", "log", "quit"]  # Regular menu options available at each location
     choice = None
+    step = 0
 
     def display_items(game) -> None:
         """Print a list of all items that the player currently has.
@@ -163,8 +164,18 @@ if __name__ == "__main__":
                     game.score += 50
                 print("You have found and picked up:", item.name)
                 item.item_check = True
-
-
+    def dig_game(step: int, ch: str) -> int:
+        """
+        a helper function for the minigame involving digging the snow for the usb.
+        """
+        directions = {0: "dig", 1: "up", 2: "left", 3: "right", 4: "down", 5: "up"}
+        if directions[step] in ch:
+            print("it's not here. maybe dig more" + directions[step + 1] + "?")
+            return step + 1
+        else:
+            print("it's not here, and you've lost track of where you were digging.")
+            return 0
+            
 
 
     # Note: You may modify the code below as needed; the following starter code is just a suggestion
@@ -186,6 +197,9 @@ if __name__ == "__main__":
             location.visited = True
         else:
             print(location.brief_description)
+            
+        if location.item_check:
+            print(location.item_description)
 
         # Display possible actions at this location
         print("What to do? Choose from: look, inventory, score, log, quit")
@@ -209,12 +223,12 @@ if __name__ == "__main__":
             # ENTER YOUR CODE BELOW to handle other menu commands (remember to use helper functions as appropriate)
             elif choice == "look":
                 print(location.long_description)
+             elif choice == "read":
+                print(location.read_description)
             elif choice == "inventory":
                 display_items(game)
-                print()
             elif choice == "score":
                 print(game.score)
-                print()
             else:
                 print("Thank you so much for playing!")
                 break
@@ -222,11 +236,35 @@ if __name__ == "__main__":
 
         else:
             # Handle non-menu actions
-            result = location.available_commands[choice]
-            game.current_location_id = result
+            if "move" in choice:
+                result = location.available_commands[choice]
+                game.current_location_id = result
+            elif "take" in choice:
+                if not location.item_check:
+                    print("There's no item here for you to take.")
+                else:
 
+
+            elif "dig" in choice:
+                if any(x.start_position == 5 for x in game.inventory):
+                    if "dig up" not in location.available_commands:
+                        location.available_commands["dig up"] = 0
+                        location.available_commands["dig down"] = 0
+                        location.available_commands["dig left"] = 0
+                        location.available_commands["dig right"] = 0
+                    if dig_step < 6:
+                        dig_step = dig_game(dig_step, choice)
+                    else:
+                        location.available_commands.pop("dig up")
+                        location.available_commands.pop("dig down")
+                        location.available_commands.pop("dig left")
+                        location.available_commands.pop("dig right")
+                        location.available_commands.pop("dig")
+
+                else:
+                    print("The snow is too cold to touch with your bare hands.")
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
-            add_items_and_score(game)
+            
 
 
             # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game

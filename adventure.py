@@ -117,22 +117,11 @@ class AdventureGame:
         else:
             return self._locations[loc_id]
 
-    def display_items(self) -> None:
-        """Print a list of all items that the player currently has.
-        """
-        if not self.inventory:
-            print("Your inventory is empty.")
-        else:
-            print("Your inventory contains:")
-            for item in self.inventory:
-                print("Name:" + item.name)
-                print("Item Points:" + str(item.target_points))
-
-    def add_items_and_score(self, loc_id: Optional[int] = None) -> None:
+    def add_items_and_score(self) -> None:
         """
         Add a new item and update player's score when visiting a location for the first time.
         """
-        location = self.get_location(loc_id)
+        location = self.get_location()
 
         if not location.visited:
             for item in self._items:
@@ -142,8 +131,6 @@ class AdventureGame:
                     print("You have found and picked up:", item.name)
 
         location.visited = True
-
-
 
 
 
@@ -161,6 +148,19 @@ if __name__ == "__main__":
     game = AdventureGame('game_data.json', 1)  # load data, setting initial location ID to 1
     menu = ["look", "read", "inventory", "score", "log", "quit"]  # Regular menu options available at each location
     choice = None
+
+    def display_items(game) -> None:
+        """Print a list of all items that the player currently has.
+        """
+        if not game.inventory:
+            print("Your inventory is empty.")
+        else:
+            print("Your inventory contains:")
+            for item in game.inventory:
+                print("Name: " + item.name)
+                print("Item Points: " + str(item.target_points))
+
+
 
     # Note: You may modify the code below as needed; the following starter code is just a suggestion
     while game.ongoing:
@@ -204,10 +204,11 @@ if __name__ == "__main__":
             elif choice == "look":
                 print(location.long_description)
             elif choice == "inventory":
-                game.display_items()
+                display_items(game)
                 print()
             elif choice == "score":
                 print(game.score)
+                print()
             else:
                 print("Thank you so much for playing!")
                 break

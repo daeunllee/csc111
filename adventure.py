@@ -210,11 +210,11 @@ if __name__ == "__main__":
 
         # Validate choice
         choice = input("\nEnter action: ").lower().strip()
-        step += 1
-        print("steps taken:" + f"steps")
         while choice not in location.available_commands and choice not in menu:
             print("That was an invalid option; try again.")
             choice = input("\nEnter action: ").lower().strip()
+        step += 1
+        print("steps taken: " + f"{step}")
 
         if step > 200:
             print("The day is over and you haven't found all your items. Game over.")

@@ -300,6 +300,9 @@ if __name__ == "__main__":
                     location.item_check = True
             elif choice == "inventory":
                 display_items(game)
+                if game.score == win_step and location.id_num == 6:
+                    print("You found all your lost items and made it back to your dorm! Great job!")
+                    break
             elif choice == "score":
                 print(game.score)
             else:
@@ -335,7 +338,4 @@ if __name__ == "__main__":
 
         if step > step_limit:
             print("Your project is now overdue, but you still haven't found all the items. Game over.")
-            break
-        if game.score == win_step and location.id_num == 6:
-            print("You found all your lost items and made it back to your dorm! Great job!")
             break

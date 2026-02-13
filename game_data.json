@@ -52,7 +52,7 @@
       "id": 4,
       "name": "Queen's Park",
       "brief_description": "The local park in the middle of campus.",
-      "long_description": "The local park in the middle of campus. The snow made the paths slippery. \nYou remember tripping here earlier and having to pick up the stuff that fell from your pockets. \nDid you forget something then?",
+      "long_description": "The local park in the middle of campus. The snow made the paths slippery. \nYou remember tripping here earlier and having to pick up the stuff that fell from your pockets.",
       "read_description": "You read the word on a stop sign. It won't stop you from finding your flash drive.",
       "item_description": "Your USB Drive is laying in the snow. Take?",
       "available_commands": {

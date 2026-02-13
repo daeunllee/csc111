@@ -7,7 +7,7 @@
       "long_description": "The entrance to the Robarts library. There's a front desk and some machines and computers. It's a weekday, so you're not surprised to see a lot of other students around at this time. You keep your head down because you have social anxiety.",
       "read_description": "There's some written instructions on a machine for returning books. You remember that you were reading a book while waiting for your laptop to fully charge. Where did you leave that book?",
       "item_description": "Your phone is beside you. Take?",
-      "available_comands": {
+      "available_commands": {
         "go north": 2,
         "go south": 5
       },
@@ -77,8 +77,8 @@
       "items": [
         "Gloves"
       ]
-      },
-      {
+    },
+    {
       "id": 6,
       "name": "Dorm room",
       "brief_description": "The dorm room you live in.",
@@ -98,33 +98,33 @@
     {
       "name": "Phone",
       "description": "Your phone that you can't go anywhere without.",
-      "start_position": 1,
+      "start_position": 1
     },
     {
       "name": "Laptop Charger",
       "description": "A charger that charges your laptop.",
-      "start_position": 2,
+      "start_position": 2
     },
     {
       "name": "Lucky Mug",
       "description": "Your favourite lucky mug.",
-      "start_position": 3,
+      "start_position": 3
     },
     {
       "name": "USB Drive",
       "description": "A really important flash drive that contains you and your partner's project.",
-      "start_position": 4,
+      "start_position": 4
     },
     {
       "name": "Gloves",
       "description": "Not your pair of gloves, but finders keepers.",
-      "start_position": 5,
+      "start_position": 5
     },
     {
       "name": "Powerbank",
       "description": "Your powerbank that's charging your phone right now.",
-      "start_position": 6,
+      "start_position": 6
     }
   ]
 }
-}
+

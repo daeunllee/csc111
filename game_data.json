@@ -72,7 +72,7 @@
       "available_commands": {
         "go west": 6,
         "go east": 4
-      }
+      },
       "item_check": True,
       "items": [
         "Gloves"
@@ -87,7 +87,7 @@
       "item_description": "Your powerbank is on the desk. Take?",
       "available_commands": {
         "go east": 5
-      }
+      },
       "item_check": True,
       "items": [
         "Powerbank"
@@ -126,4 +126,5 @@
       "start_position": 6,
     }
   ]
+}
 }

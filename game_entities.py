@@ -68,13 +68,11 @@ class Item:
     Instance Attributes:
         - name: Name of the item.
         - start_position: Which location this item can be initially found in.
-        - target_position: Which location this item can be used at.
         - target_points: The amount of points earned from finding this item.
 
     Representation Invariants:
         - self.name != ""
         - self.start_position >= 0
-        - self.target_position >= 0
         - self.target_points >= 0
     """
 
@@ -88,7 +86,6 @@ class Item:
 
     name: str
     start_position: int
-    target_position: int
     target_points: int
 
 

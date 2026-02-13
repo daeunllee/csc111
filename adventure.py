@@ -173,7 +173,7 @@ if __name__ == "__main__":
         """
         directions = {0: "dig", 1: "up", 2: "left", 3: "right", 4: "down", 5: "up"}
         if directions[step] in ch:
-            print("it's not here. maybe dig more" + directions[step + 1] + "?")
+            print("it's not here, but you feel like you're getting closer.")
             return step + 1
         else:
             print("it's not here, and you've lost track of where you were digging.")

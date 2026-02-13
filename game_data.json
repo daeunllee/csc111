@@ -54,7 +54,8 @@
       "read_description": "You read the word on a stop sign. It won't stop you from finding your flash drive.",
       "item_description": "Your USB Drive is laying in the snow.",
       "available_commands": {
-        "go East": 5
+        "go East": 5,
+        "Dig"
       },
       "item_check": False,
       "items": [

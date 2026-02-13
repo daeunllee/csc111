@@ -13,7 +13,7 @@
 \maketitle
 
 \section*{Running the game}
-We should be able to run your game by simply running \texttt{adventure.py}. If you have any other requirements (e.g., installing certain modules), describe them here. Otherwise, skip this section.
+Run adventure.py
 
 \section*{Game Map}
 Example game map below (edit it to show your actual game map):
@@ -42,7 +42,7 @@ Which parts of your code are involved in this functionality:
 \section*{Inventory}
 
 \begin{enumerate}
-\item All location IDs that involve items in the game: 2, 3, 4, 5, 6
+\item All location IDs that involve items in the game: 1, 2, 3, 4, 5, 6
 
 \item Item data:
 \begin{enumerate}
@@ -81,18 +81,25 @@ Which parts of your code are involved in this functionality:
 
     \item Exact command(s) that should be used to pick up an item (choose any one or more items for this example), and the command(s) used to use/drop the item (can copy the list you assigned to \texttt{inventory\_demo} in the \texttt{simulation.py} file)
     \item Which parts of your code (file, class, function/method) are involved in handling the \texttt{inventory} command:
+    
+    In adventure.py, the function display\_items() is the helper function in the main function that searches through the current inventory list (an instance attribute in the AdventureGame class) and prints each object Item (from game\_entities.py) which includes the item name and how many points can be obtained by taking this item.
 \end{enumerate}
 
 \section*{Score}
 \begin{enumerate}
 
     \item Briefly describe the way players can earn score in your game. Include the first location in which they can increase their score, and the exact list of command(s) leading up to the score increase:
-
-
+    
+    Players can earn scores by collecting items around the map in different locations. The first location they can find an item in is the starting location 2, Robarts 2F - Dining Area, or location 5, Oak House, depending on where the player decides to go first. When the player runs the game, typing "go north" will direct the player to location 2, where they can pick up the Lucky Mug, which will add 100 points to their total score. If the player types "go south", it will direct the player to location 5, where they can pick up gloves, which will add 50 points to their total score.  
+    
     \item Copy the list you assigned to \texttt{scores\_demo} in the \texttt{simulation.py} file into this section of the report:
 
 
     \item Which parts of your code (file, class, function/method) are involved in handling the \texttt{score} functionality:
+    
+    In adventure.py, there is a function take\_item() in the main function. When a player enters a location with an item for the first time, this function will not only add an item to the inventory list, it will also add points to the player's total score (an instance attribute in the AdventureGame class) depending on which item the player finds.
+    
+    
 \end{enumerate}
 
 \section*{Enhancements}

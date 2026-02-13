@@ -11,7 +11,7 @@
         "go north": 2,
         "go south": 5
       },
-      "item_check": false,
+      "item_check": true,
       "items": [
       ]
     },

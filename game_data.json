@@ -11,7 +11,7 @@
         "go north": 2,
         "go south": 5
       },
-      "item_check": False,
+      "item_check": false,
       "items": [
       ]
     },
@@ -26,7 +26,7 @@
         "go south": 1,
         "go east": 3
       },
-      "item_check": False,
+      "item_check": false,
       "items": [
         "Lucky Mug"
       ]
@@ -41,7 +41,7 @@
       "available_commands": {
         "go west": 2
       },
-      "item_check": False,
+      "item_check": false,
       "items": [
         "Laptop Charger"
       ]
@@ -57,7 +57,7 @@
         "go east": 5,
         "dig": 0
       },
-      "item_check": False,
+      "item_check": false,
       "items": [
         "USB Drive"
       ]
@@ -73,7 +73,7 @@
         "go west": 6,
         "go east": 4
       },
-      "item_check": True,
+      "item_check": true,
       "items": [
         "Gloves"
       ]
@@ -88,7 +88,7 @@
       "available_commands": {
         "go east": 5
       },
-      "item_check": True,
+      "item_check": true,
       "items": [
         "Powerbank"
       ]

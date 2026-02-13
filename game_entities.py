@@ -34,8 +34,8 @@ class Location:
         - available_commands: A dictionary mapping directional commands (in strings) to an id number of the destination
         location.
         - items: A list storing all the available items at a certain location.
-        - visited: Whether the player has visited this location before.
         - item_check: Whether the item is available at a location to take.
+        - visited: Whether the player has visited this location before.
 
     Representation Invariants:
         - self.id_num >= 0
@@ -57,8 +57,9 @@ class Location:
     item_description: str
     available_commands: dict[str, int]
     items: list[str]
-    visited: bool = False
     item_check: bool
+    visited: bool = False
+    
 
 
 @dataclass

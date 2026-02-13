@@ -117,20 +117,6 @@ class AdventureGame:
         else:
             return self._locations[loc_id]
 
-    def add_items_and_score(self) -> None:
-        """
-        Add a new item and update player's score when visiting a location for the first time.
-        """
-        location = self.get_location()
-
-        if not location.visited:
-            for item in self._items:
-                if item.start_position == location.id_num:
-                    self.inventory.append(item)
-                    self.score += item.target_points
-                    print("You have found and picked up:", item.name)
-
-        location.visited = True
 
 
 
@@ -160,6 +146,25 @@ if __name__ == "__main__":
                 print("Name: " + item.name)
                 print("Item Points: " + str(item.target_points))
 
+    def add_items_and_score(game) -> None:
+        """
+        Add a new item and update player's score when visiting a location for the first time.
+        """
+        location = game.get_location()
+
+        if not location.visited:
+            for item in game.items:
+                if item.start_position == location.id_num:
+                    game.inventory.append(item)
+                    if item.name == "Phone":
+                        pass
+                    elif (item.name == "Laptop Charger") or (item.name == "Lucky Mug") or (item.name == "USB Drive"):
+                        game.score += 100
+                    else:
+                        game.score += 50
+                    print("You have found and picked up:", item.name)
+
+            location.visited = True
 
 
     # Note: You may modify the code below as needed; the following starter code is just a suggestion
@@ -220,7 +225,7 @@ if __name__ == "__main__":
             game.current_location_id = result
 
             # TODO: Add in code to deal with actions which do not change the location (e.g. taking or using an item)
-            game.add_items_and_score()
+            add_items_and_score(game)
 
 
             # TODO: Add in code to deal with special locations (e.g. puzzles) as needed for your game

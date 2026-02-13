@@ -152,19 +152,19 @@ if __name__ == "__main__":
         """
         location = game.get_location()
 
-        if not location.visited:
-            for item in game.items:
-                if item.start_position == location.id_num:
-                    game.inventory.append(item)
-                    if item.name == "Phone":
-                        pass
-                    elif (item.name == "Laptop Charger") or (item.name == "Lucky Mug") or (item.name == "USB Drive"):
-                        game.score += 100
-                    else:
-                        game.score += 50
-                    print("You have found and picked up:", item.name)
+        for item in location.items:
+            if item.start_position == location.id_num:
+                game.inventory.append(item)
+                if item.name == "Phone":
+                    pass
+                elif (item.name == "Laptop Charger") or (item.name == "Lucky Mug") or (item.name == "USB Drive"):
+                    game.score += 100
+                else:
+                    game.score += 50
+                print("You have found and picked up:", item.name)
+                item.item_check = True
 
-            location.visited = True
+
 
 
     # Note: You may modify the code below as needed; the following starter code is just a suggestion
@@ -183,6 +183,7 @@ if __name__ == "__main__":
         #  print either full description (first time visit) or brief description (every subsequent visit) of location
         if not location.visited:
             print(location.long_description)
+            location.visited = True
         else:
             print(location.brief_description)
 

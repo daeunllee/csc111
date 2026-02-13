@@ -13,6 +13,7 @@
       },
       "item_check": true,
       "items": [
+        "Phone"
       ]
     },
     {
@@ -54,7 +55,7 @@
       "read_description": "You read the word on a stop sign. It won't stop you from finding your flash drive.",
       "item_description": "Your USB Drive is laying in the snow. Take?",
       "available_commands": {
-        "go east": 5,
+        "go west": 5,
         "dig": 0
       },
       "item_check": false,
@@ -71,7 +72,8 @@
       "item_description": "There is a pair of gloves on the floor. It doesn't seem to belong to anyone. Take?",
       "available_commands": {
         "go west": 6,
-        "go east": 4
+        "go east": 4,
+        "go north": 1
       },
       "item_check": true,
       "items": [
@@ -127,4 +129,3 @@
     }
   ]
 }
-
